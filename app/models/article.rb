@@ -1,11 +1,12 @@
 class Article < ApplicationRecord
 
     validates :title,
-            presence: true
+            presence: true,
+            length: { within: 5..30 }
 
 
     validates :body,
             presence: true,
-            length: { minimum: 3 }
+            length: { within: 20..1000 }
 
 end
