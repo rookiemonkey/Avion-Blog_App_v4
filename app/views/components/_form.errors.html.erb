@@ -1,0 +1,11 @@
+<% if instance.present? and instance.errors.present? %>
+
+    <p>Please fix the following errors:</p>
+    
+    <ul>
+        <% instance.errors.full_messages.each do |err| %>
+            <li class="has-text-danger"><%= err %></li>
+        <% end %>
+    </ul>
+    
+<% end %>

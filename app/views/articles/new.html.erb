@@ -1,5 +1,7 @@
 <%= render 'components/nav' %>
 
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+<%= render 'components/form.errors', instance: @article %>
+
+<%= form_with scope: :article, url: post_article_path, local: true do |form| %>
     <%= render 'form.fields', form: form %>
 <% end %>
