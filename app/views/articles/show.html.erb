@@ -1,4 +1,10 @@
 <%= render 'components/nav' %>
 
-<h1>SHOW</h1>
-<h1>Show an article</h1>
+<section class="section">
+    <h1 class="title">
+        <%= @article.title %>
+    </h1>
+    <h2 class="subtitle">
+        <%= @article.created_at %>
+    </h2>
+</section>
