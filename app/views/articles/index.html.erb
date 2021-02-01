@@ -1,4 +1,21 @@
 <%= render 'components/nav' %>
 
-<h1>INDEX</h1>
-<h1>List all articles</h1>
+<% @articles.each do |article| %>
+
+    <section class="section is-medium">
+        <h1 class="title">
+            <%= article.title %>
+        </h1>
+        
+        <h2 class="subtitle">
+            <%= article.created_at %>
+        </h2>
+
+        <p>
+            <%= truncate_str(article.body, 100) %>
+        </p>
+
+        <%= link_to :Read, article_path(article), class: :"button is-light"  %>
+    </section>
+
+<% end %>
