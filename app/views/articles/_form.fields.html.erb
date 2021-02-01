@@ -1,0 +1,17 @@
+<div class="field">
+    <%= form.label :title, class: :label %>
+    <div class="control">
+        <%= form.text_field :title, autocomplete: :off, placeholder: :"Text Input", class: :input %>
+    </div>
+</div>
+
+<div class="field">
+    <%= form.label :Body, class: :label %>
+    <div class="control">
+        <%= form.text_area :body, autocomplete: :off, class: :textarea %>
+    </div>
+</div>
+
+<div class="field">
+    <%= form.submit class: 'button is-link' %>
+</div>

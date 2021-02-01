@@ -1,4 +1,5 @@
 <%= render 'components/nav' %>
 
-<h1>NEW</h1>
-<h1>Show a form to add an article</h1>
+<%= form_with scope: :article, url: articles_path, local: true do |form| %>
+    <%= render 'form.fields', form: form %>
+<% end %>
