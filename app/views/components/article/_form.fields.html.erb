@@ -14,13 +14,13 @@
 
 <div class="field">
 
-    <% if params[:action] == 'new' %>
+    <% if action == 'new' %>
     <%= form.button class: 'button is-primary', title: 'Post Article' do %>
         <i class="fas fa-paper-plane mr-3"></i> Post
     <% end %>
     <% end %>
 
-    <% if params[:action] == 'edit' %>
+    <% if action == 'edit' %>
     <%= form.button class: 'button is-primary',  title: 'Update Article' do %>
         <i class="fas fa-edit mr-3"></i> Update
     <% end %>

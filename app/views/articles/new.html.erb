@@ -13,7 +13,7 @@
 
     <div class="column is-6 form-right">
     <%= form_with scope: :article, url: post_article_path, local: true do |form| %>
-        <%= render 'components/article/form.fields', form: form %>
+        <%= render 'components/article/form.fields', form: form, action: 'new' %>
     <% end %>
     </div>
 
