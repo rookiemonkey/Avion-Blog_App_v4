@@ -1,5 +1,7 @@
 <%= render 'components/nav' %>
 
+<%= link_to :"New Article", new_article_path, class: "button is-medium is-dark" %>
+
 <% @articles.each do |article| %>
 
     <section class="section is-medium">

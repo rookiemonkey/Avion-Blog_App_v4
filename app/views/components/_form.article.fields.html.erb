@@ -13,5 +13,9 @@
 </div>
 
 <div class="field">
-    <%= form.submit class: 'button is-link' %>
+    <%= form.submit class: 'button is-success' %>
+
+    <% if params[:action] == 'edit' %>
+        <button class="button is-warning" onclick="back()">Cancel</button>
+    <% end %>
 </div>
