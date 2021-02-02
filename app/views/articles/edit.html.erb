@@ -5,3 +5,5 @@
 <%= form_with model: @article, url: patch_article_path, local: true do |form| %>
     <%= render 'components/form.article.fields', form: form %>
 <% end %>
+
+<%= render 'components/footer' %>

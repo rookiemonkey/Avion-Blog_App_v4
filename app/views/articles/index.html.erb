@@ -6,7 +6,7 @@
 <div class="hero-body">
 <div class="container">
 
-    <% @articles.each do |article| %>
+    <% @articles.each_with_index do |article, index| %>
 
         <section class="section">
         <div class="columns">
@@ -30,10 +30,14 @@
         </div>
         </section>
 
-        <div class="is-divider"></div>
+        <% if index < @articles.length - 1 %>
+            <div class="is-divider"></div>
+        <% end %>
     
     <% end %>
 
 </div>
 </div>
 </section>
+
+<%= render 'components/footer' %>
