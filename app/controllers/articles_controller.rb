@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-    before_action :set_article, only: [:show]
+    before_action :set_article, only: [:show, :edit, :update]
 
     def edit
     end
@@ -21,9 +21,20 @@ class ArticlesController < ApplicationController
             raise 'Failed to save' unless @article.save
             redirect_to @article
 
-        rescue Exception => e
+        rescue => e
             render :new
 
+        end
+    end
+
+    def update
+        begin
+            raise 'Failed to update' unless @article.update(self.extract_article_params)
+            redirect_to @article
+            
+        rescue => e
+            render :edit
+            
         end
     end
 

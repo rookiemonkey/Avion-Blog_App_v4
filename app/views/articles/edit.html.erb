@@ -1,4 +1,7 @@
 <%= render 'components/nav' %>
 
-<h1>EDIT</h1>
-<h1>Show a form to edit an article</h1>
+<%= render 'components/form.errors', instance: @article %>
+
+<%= form_with model: @article, url: patch_article_path, local: true do |form| %>
+    <%= render 'form.fields', form: form %>
+<% end %>
