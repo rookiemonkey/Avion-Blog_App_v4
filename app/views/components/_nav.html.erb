@@ -1,49 +1,29 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
 
+<nav class="navbar">
+<div class="container">
+
+    <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
-            <b>Speak</b>
+            <b>Thoughts</b>
+            <span class="icon">
+                <i class="far fa-comment-dots"></i>
+            <span>
         <% end %>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
+    <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-end">
 
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    Discover
-                </a>
+        <%= link_to :Articles, articles_path, class: "navbar-item is-size-5 has-text-weight-semibold" %>
 
-                <div class="navbar-dropdown">
-
-                    <%= link_to :Articles, articles_path, class: "navbar-item" %>
-
-                    <hr class="navbar-divider">
-
-                    <a class="navbar-item">
-                        Report an issue
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                <a class="button is-primary">
-                    <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                    Log in
-                </a>
-                </div>
-            </div>
-        </div>
     </div>
+    </div>
+    
+</div>
 </nav>
