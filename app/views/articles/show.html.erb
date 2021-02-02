@@ -5,17 +5,32 @@
 <div class="hero-body">
 <div class="container">
 
-<%= render 'components/banner', title: @article.title %>
+<section class="hero is-medium banner-custom">
+<div class="hero-body">
+<div class="container has-text-centered">
+
+    <h1 class="is-size-2 has-text-white has-text-weight-semibold">
+        <%= @article.title %>
+    </h1>
+
+    <small class="has-text-white">
+        by Someone who loves you :)
+    <small>
+
+</div>
+</div>
+</section>
 
 <section class="section">
 
     <%= render 'components/article/button.actions', instance: @article %>
     
-    <h2 class="subtitle">
+    <h2 class="subtitle has-text-grey-light has-text-weight-semibold">
+        <i class="far fa-calendar-alt mr-3"></i> 
         <%= date_str(@article.created_at) %>
     </h2>
 
-    <p>
+    <p class="has-text-black-bis">
         <%= @article.body %>
     </p>
 
