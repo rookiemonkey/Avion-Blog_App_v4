@@ -13,7 +13,7 @@
     </div>
 
     <div class="column is-6 form-right">
-    <%= form_with model: @article, url: patch_article_path, local: true do |form| %>
+    <%= form_with model: @article, url: patch_article_path, local: true, multipart: true do |form| %>
         <%= render 'components/article/form.fields', form: form, action: 'edit' %>
     <% end %>
     </div>
