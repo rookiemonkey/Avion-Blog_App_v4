@@ -1,19 +1,19 @@
 <div class="field">
     <%= form.label :title, class: :label %>
     <div class="control">
-        <%= form.text_field :title, autocomplete: :off, placeholder: :"Text Input", class: :input %>
+        <%= form.text_field :title, autocomplete: :off, class: :input %>
     </div>
 </div>
 
 <div class="field">
     <%= form.label :Body, class: :label %>
     <div class="control">
-        <%= form.text_area :body, autocomplete: :off, class: :textarea %>
+        <%= form.text_area :body, autocomplete: :off, class: "textarea textarea-custom", maxlength: 999 %>
     </div>
 </div>
 
 <div class="field">
-    <%= form.submit class: 'button is-success' %>
+    <%= form.submit class: 'button is-primary' %>
 
     <% if params[:action] == 'edit' %>
         <button class="button is-warning" onclick="back()">Cancel</button>

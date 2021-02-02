@@ -1,3 +1,10 @@
 @import 'bulma/bulma';
 @import './lib/divider.scss';
+
+
+// components
 @import './components/nav.scss';
+
+
+// styles per view
+@import './articles/form.scss';

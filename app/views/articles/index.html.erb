@@ -6,14 +6,16 @@
 
     <div class="columns">
     <div class="column is-8 is-offset-2">
-    <section class="hero is-info welcome is-small">
+    <section class="hero is-primary welcome is-small">
     <div class="hero-body">
     <div class="container">
 
         <h1 class="title">
             What's new?
 
-            <%= link_to :"New Article", new_article_path, class: "button is-normal is-light is-pulled-right" %>
+            <%= link_to new_article_path, class: "button is-normal is-light is-pulled-right" do %>
+                <i class="fas fa-plus"></i>
+            <% end %>
         </h1>
 
     </div>
