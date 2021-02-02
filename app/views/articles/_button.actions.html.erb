@@ -1,0 +1,10 @@
+
+<div class="buttons">
+
+    <%= link_to :Read, article_path(instance), class: :"button is-light"  %>
+
+    <%= link_to :Edit, edit_article_path(instance), class: :"button is-warning is-light"  %>
+
+    <%= link_to :Delete, article_path(instance), method: :delete, class: :"button is-danger is-light", data: { confirm: "Are you sure?" }  %>
+
+</div>

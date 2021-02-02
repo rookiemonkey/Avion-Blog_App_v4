@@ -9,6 +9,8 @@
         <%= @article.created_at %>
     </h2>
 
+    <%= render 'button.actions', instance: @article %>
+
     <p>
         <%= @article.body %>
     </p>

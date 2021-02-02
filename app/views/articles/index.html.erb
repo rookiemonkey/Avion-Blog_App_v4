@@ -15,7 +15,7 @@
             <%= truncate_str(article.body, 100) %>
         </p>
 
-        <%= link_to :Read, article_path(article), class: :"button is-light"  %>
+        <%= render 'button.actions', instance: article %>
     </section>
 
 <% end %>
