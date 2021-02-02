@@ -11,7 +11,3 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-function back() {
-    window.history.back()
-}
