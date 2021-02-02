@@ -20,7 +20,22 @@
     <div id="navbarMenu" class="navbar-menu">
     <div class="navbar-end">
 
-        <%= link_to :Articles, articles_path, class: "navbar-item is-size-5 has-text-weight-semibold" %>
+        <div class="dropdown navbar-item is-hoverable">
+            <div class="dropdown-trigger">
+                <button class="button is-size-5 has-text-weight-semibold " aria-haspopup="true" aria-controls="dropdown-menu4">
+                    <span>Discover</span>
+                </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                <div class="dropdown-content">
+                <div class="dropdown-item">
+
+                    <%= link_to :Articles, articles_path, class: "navbar-item" %>
+                    
+                </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     </div>

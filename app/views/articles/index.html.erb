@@ -1,10 +1,26 @@
 <%= render 'components/nav' %>
 
-<%= link_to :"New Article", new_article_path, class: "button is-medium is-dark" %>
-
 <section class="hero ">
 <div class="hero-body">
 <div class="container">
+
+    <div class="columns">
+    <div class="column is-8 is-offset-2">
+    <section class="hero is-info welcome is-small">
+    <div class="hero-body">
+    <div class="container">
+
+        <h1 class="title">
+            What's new?
+
+            <%= link_to :"New Article", new_article_path, class: "button is-normal is-light is-pulled-right" %>
+        </h1>
+
+    </div>
+    </div>
+    </section>
+    </div>
+    </div>
 
     <% @articles.each_with_index do |article, index| %>
 
@@ -31,7 +47,11 @@
         </section>
 
         <% if index < @articles.length - 1 %>
-            <div class="is-divider"></div>
+            <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <div class="is-divider"></div>
+            </div>
+            </div>
         <% end %>
     
     <% end %>
