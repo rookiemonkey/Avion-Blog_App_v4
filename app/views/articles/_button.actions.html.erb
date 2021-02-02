@@ -1,7 +1,9 @@
 
 <div class="buttons">
 
-    <%= link_to :Read, article_path(instance), class: :"button is-light"  %>
+    <% unless params[:action] == "show" %>
+        <%= link_to :Read, article_path(instance), class: :"button is-light"  %>
+    <% end %>
 
     <%= link_to :Edit, edit_article_path(instance), class: :"button is-warning is-light"  %>
 
