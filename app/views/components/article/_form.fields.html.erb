@@ -13,9 +13,19 @@
 </div>
 
 <div class="field">
-    <%= form.submit class: 'button is-primary' %>
+
+    <% if params[:action] == 'new' %>
+    <%= form.button class: 'button is-primary', title: 'Post Article' do %>
+        <i class="fas fa-paper-plane mr-3"></i> Post
+    <% end %>
+    <% end %>
 
     <% if params[:action] == 'edit' %>
-        <button class="button is-warning" onclick="back()">Cancel</button>
+    <%= form.button class: 'button is-primary',  title: 'Update Article' do %>
+        <i class="fas fa-edit mr-3"></i> Update
     <% end %>
+    <% end %>
+
+    <button class="button is-warning" onclick="back()">Cancel</button>
+
 </div>

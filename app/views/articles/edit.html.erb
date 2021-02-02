@@ -2,8 +2,24 @@
 
 <%= render 'components/form.errors', instance: @article %>
 
-<%= form_with model: @article, url: patch_article_path, local: true do |form| %>
-    <%= render 'components/article/form.fields', form: form %>
-<% end %>
+<div class="container">
+<section class="section px-0">
+<div class="columns">
+
+    <div class="column is-6 form-left">
+        <%= image_tag "thoughts2.svg", alt: "Thoughts", class: "mb-4" %>
+        <h2 class="is-size-4 mt-4 has-text-weight-semibold">Have something to change for?</h2>
+        <em><%= @article.title %></em>
+    </div>
+
+    <div class="column is-6 form-right">
+    <%= form_with model: @article, url: patch_article_path, local: true do |form| %>
+        <%= render 'components/article/form.fields', form: form %>
+    <% end %>
+    </div>
+
+</div>
+</section>
+</div>
 
 <%= render 'components/footer' %>
