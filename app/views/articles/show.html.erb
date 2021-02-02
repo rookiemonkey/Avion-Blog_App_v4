@@ -5,7 +5,13 @@
 <div class="hero-body">
 <div class="container">
 
-<section class="hero is-medium banner-custom">
+
+<% if @article.image.attached? %>
+  <section class="hero is-medium banner-custom" style='background-image: url(<%= url_for @article.image %>)'>
+<% else %>
+  <section class="hero is-medium banner-custom">
+<% end %>
+
 <div class="hero-body">
 <div class="container has-text-centered">
 
