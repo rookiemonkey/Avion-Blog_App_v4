@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-    before_action :set_article, only: [:show, :edit, :update]
+    before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     def edit
     end
@@ -36,6 +36,10 @@ class ArticlesController < ApplicationController
             render :edit
             
         end
+    end
+
+    def destroy
+
     end
 
 

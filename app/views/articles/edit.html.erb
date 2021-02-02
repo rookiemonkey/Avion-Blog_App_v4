@@ -3,5 +3,5 @@
 <%= render 'components/form.errors', instance: @article %>
 
 <%= form_with model: @article, url: patch_article_path, local: true do |form| %>
-    <%= render 'form.fields', form: form %>
+    <%= render 'components/form.article.fields', form: form %>
 <% end %>
