@@ -2,22 +2,38 @@
 
 <%= link_to :"New Article", new_article_path, class: "button is-medium is-dark" %>
 
-<% @articles.each do |article| %>
+<section class="hero ">
+<div class="hero-body">
+<div class="container">
 
-    <section class="section is-medium">
-        <h1 class="title">
-            <%= article.title %>
-        </h1>
+    <% @articles.each do |article| %>
+
+        <section class="section">
+        <div class="columns">
+        <div class="column is-8 is-offset-2">
+        <div class="content is-medium">
         
-        <h2 class="subtitle">
-            <%= article.created_at %>
-        </h2>
+            <h2 class="subtitle is-4">
+                <%= article.created_at %>
+            </h2>
+            
+            <h1 class="title">
+                <%= article.title %>
+            </h1>
 
-        <p>
-            <%= truncate_str(article.body, 100) %>
-        </p>
+            <p>
+                <%= truncate_str(article.body, 230) %>
+            </p>
 
-        <%= render 'components/button.actions', instance: article %>
-    </section>
+        </div>
+        </div>
+        </div>
+        </section>
 
-<% end %>
+        <div class="is-divider"></div>
+    
+    <% end %>
+
+</div>
+</div>
+</section>
