@@ -12,7 +12,7 @@
     <%= render 'components/article/button.actions', instance: @article %>
     
     <h2 class="subtitle">
-        <%= @article.created_at %>
+        <%= date_str(@article.created_at) %>
     </h2>
 
     <p>
