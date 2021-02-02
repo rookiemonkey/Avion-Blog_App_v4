@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
     def create
         begin
             @article = Article.new(self.extract_article_params)
-            raise 'Failed to save' unless @article.save
+            raise 'Failed to create article' unless @article.save
             redirect_to @article
 
         rescue => e
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
 
     def update
         begin
-            raise 'Failed to update' unless @article.update(self.extract_article_params)
+            raise 'Failed to update article' unless @article.update(self.extract_article_params)
             redirect_to @article
             
         rescue => e
@@ -39,7 +39,14 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
+        begin
+            raise 'Failed to delete article' unless @article.destroy
+            redirect_to articles_path
 
+        rescue => e
+            render @article
+        
+        end
     end
 
 
