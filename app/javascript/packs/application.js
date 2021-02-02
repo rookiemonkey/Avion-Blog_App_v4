@@ -14,4 +14,4 @@ ActiveStorage.start()
 
 function back() {
     window.history.back()
-} 
+}

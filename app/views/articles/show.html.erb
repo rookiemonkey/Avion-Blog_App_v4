@@ -1,19 +1,28 @@
 <%= render 'components/nav' %>
 
+
+<section class="hero ">
+<div class="hero-body">
+<div class="container">
+
+<%= render 'components/banner', title: @article.title %>
+
 <section class="section">
-    <h1 class="title">
-        <%= @article.title %>
-    </h1>
+
+    <%= render 'components/article/button.actions', instance: @article %>
     
     <h2 class="subtitle">
         <%= @article.created_at %>
     </h2>
 
-    <%= render 'components/article/button.actions', instance: @article %>
-
     <p>
         <%= @article.body %>
     </p>
+
+</section>
+
+</div>
+</div>
 </section>
 
 <%= render 'components/footer' %>
