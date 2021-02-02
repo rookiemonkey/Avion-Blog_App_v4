@@ -1,12 +1,18 @@
 
-<div class="buttons">
+<div class="buttons is-pulled-right">
 
     <% unless params[:action] == "show" %>
-        <%= link_to :Read, article_path(instance), class: :"button is-light"  %>
+        <%= link_to article_path(instance), class: :"button is-light action-article-button", title: "View Article" do %>
+            <i class="fas fa-book-reader"></i>
+        <% end %>
     <% end %>
 
-    <%= link_to :Edit, edit_article_path(instance), class: :"button is-warning is-light"  %>
+    <%= link_to edit_article_path(instance), class: :"button is-warning is-light action-article-button", title: "Edit Article" do %>
+        <i class="fas fa-edit"></i>
+    <% end %>
 
-    <%= link_to :Delete, article_path(instance), method: :delete, class: :"button is-danger is-light", data: { confirm: "Are you sure?" }  %>
+    <%= link_to article_path(instance), method: :delete, class: :"button is-danger is-light action-article-button", title: "Delete Article", data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt"></i>
+    <% end %>
 
 </div>
