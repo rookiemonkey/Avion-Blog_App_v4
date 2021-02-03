@@ -9,3 +9,11 @@
 
 // styles per view
 @import './articles/main';
+
+
+@keyframes spin { 
+  100% { 
+    -webkit-transform: rotate(180deg); 
+    transform:rotate(180deg); 
+  } 
+}
