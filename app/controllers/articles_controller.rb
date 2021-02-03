@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
             raise 'Failed to create article' unless @article.save
             redirect_to @article
 
-        rescue => e
+        rescue StandardError => e
             render :new
 
         end
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
             raise 'Failed to update article' unless @article.update(self.extract_article_params)
             redirect_to @article
             
-        rescue => e
+        rescue StandardError => e
             render :edit
             
         end
@@ -41,11 +41,11 @@ class ArticlesController < ApplicationController
 
     def destroy
         begin
-            @article.purge
+            # @article.purge need to store image somewhere if
             raise 'Failed to delete article' unless @article.destroy
             redirect_to articles_path
 
-        rescue => e
+        rescue StandardError => e
             render @article
         
         end
