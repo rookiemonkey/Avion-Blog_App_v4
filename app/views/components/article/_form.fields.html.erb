@@ -12,20 +12,40 @@
     </div>
 </div>
 
-<div class="field">
+<div class="field is-flex is-justify-content-space-between">
 
+  <div class="control" style="max-width: 200px">
+  <div class="file">
+  <label class="file-label">
+    <%= form.file_field :image, class: "file-input", accept: "image/png, image/jpeg, image/jpg" %>
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Article Banner
+      </span>
+    </span>
+  </label>
+  </div>
+  </div>
+
+  <div>
     <% if action == 'new' %>
-    <%= form.button class: 'button is-primary', title: 'Post Article' do %>
+    <%= form.button class: 'button is-primary is-pulled-right ml-3', title: 'Post Article' do %>
         <i class="fas fa-paper-plane mr-3"></i> Post
     <% end %>
     <% end %>
 
     <% if action == 'edit' %>
-    <%= form.button class: 'button is-primary',  title: 'Update Article' do %>
+    <%= form.button class: 'button is-primary is-pulled-right ml-3',  title: 'Update Article' do %>
         <i class="fas fa-edit mr-3"></i> Update
     <% end %>
     <% end %>
 
-    <%= link_to :Cancel, root_path, class: "button is-warning" %>
+    <%= link_to :Cancel, root_path, class: "button is-warning is-pulled-right ml-3" %>
+  </div>
 
 </div>
+
+<%= javascript_pack_tag 'article_form' %>

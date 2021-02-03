@@ -7,13 +7,13 @@
 <div class="columns">
 
     <div class="column is-6 form-left">
-        <%= image_tag "thoughts2.svg", alt: "Thoughts", class: "mb-4" %>
+        <%= image_tag "thoughts2.svg", alt: "Thoughts", class: "mb-4 preview" %>
         <h2 class="is-size-4 mt-4 has-text-weight-semibold">Have something to change for?</h2>
         <em><%= @article.title %></em>
     </div>
 
     <div class="column is-6 form-right">
-    <%= form_with model: @article, url: patch_article_path, local: true do |form| %>
+    <%= form_with model: @article, url: patch_article_path, local: true, multipart: true do |form| %>
         <%= render 'components/article/form.fields', form: form, action: 'edit' %>
     <% end %>
     </div>
