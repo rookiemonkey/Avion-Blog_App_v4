@@ -33,7 +33,7 @@
         
             <h2 class="subtitle is-4 has-text-grey-light">
                 <i class="far fa-calendar-alt mr-3"></i>
-                <%= date_str(article.created_at) %>
+                Written <%= time_ago_in_words article.created_at %> ago
             </h2>
             
             <h1 class="title">

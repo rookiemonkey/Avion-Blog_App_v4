@@ -33,7 +33,12 @@
     
     <h2 class="subtitle has-text-grey-light has-text-weight-semibold">
         <i class="far fa-calendar-alt mr-3"></i> 
-        <%= date_str(@article.created_at) %>
+        Written <%= time_ago_in_words @article.created_at %> ago
+    </h2>
+
+    <h2 class="subtitle has-text-grey-light has-text-weight-semibold">
+        <i class="fas fa-edit mr-2"></i>
+        Updated <%= date_full_words @article.updated_at %>
     </h2>
 
     <p class="has-text-black-bis is-size-5 has-text-justified">

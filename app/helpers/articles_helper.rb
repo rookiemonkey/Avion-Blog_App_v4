@@ -5,8 +5,8 @@ module ArticlesHelper
         str.slice(0..length) + "..."
     end
 
-    def date_str(date)
-        date.strftime("%A, %d %b %Y %l:%M %p %Z")
+    def date_full_words(date)
+        date.strftime("%A, %d %b %Y")
     end
 
 end
