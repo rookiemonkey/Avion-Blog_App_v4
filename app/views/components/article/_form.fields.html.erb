@@ -14,7 +14,7 @@
 
 <div class="field is-flex is-justify-content-space-between">
 
-  <div class="control" style="width: max-content">
+  <div class="control" style="max-width: 200px">
   <div class="file">
   <label class="file-label">
     <%= form.file_field :image, class: "file-input" %>
@@ -47,3 +47,5 @@
   </div>
 
 </div>
+
+<%= javascript_pack_tag 'article_form' %>
