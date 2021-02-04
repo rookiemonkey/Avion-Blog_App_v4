@@ -1,10 +1,7 @@
 require 'pp'
 
 class Article < ApplicationRecord
-
-    has_one_attached :image
-    validate :validate_image
-
+  
     validates :title,
             presence: true,
             length: { within: 5..30 }
