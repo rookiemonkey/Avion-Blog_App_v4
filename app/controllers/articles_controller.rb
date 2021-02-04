@@ -18,10 +18,12 @@ class ArticlesController < ApplicationController
     def create
         begin
             @article = Article.new(self.extract_article_params)
-            raise 'Failed to create article' unless @article.save
+            raise 'Oh snap! Something went wrong upon creating your article' unless @article.save
+            flash[:notice] = 'Successfully created your article!'
             redirect_to @article
 
         rescue StandardError => e
+            flash[:alert] = e.message
             render :new
 
         end
@@ -29,10 +31,12 @@ class ArticlesController < ApplicationController
 
     def update
         begin
-            raise 'Failed to update article' unless @article.update(self.extract_article_params)
+            raise 'Oh snap! Something went wrong upon updating your article' unless @article.update(self.extract_article_params)
+            flash[:notice] = 'Successfully updated your article!'
             redirect_to @article
             
         rescue StandardError => e
+            flash[:alert] = e.message
             render :edit
             
         end
@@ -40,10 +44,12 @@ class ArticlesController < ApplicationController
 
     def destroy
         begin
-            raise 'Failed to delete article' unless @article.destroy
+            raise 'Oh snap! Something went wrong upon deleting your article' unless @article.destroy
+            flash[:notice] = 'Successfully deleted your article!'
             redirect_to articles_path
 
         rescue StandardError => e
+            flash[:alert] = e.message
             render @article
         
         end
@@ -53,7 +59,14 @@ class ArticlesController < ApplicationController
     private
 
     def set_article
-        @article = Article.find params[:id]
+        begin
+          @article = Article.find params[:id]
+
+        rescue StandardError => e
+            flash[:alert] = e.message
+            redirect_to articles_path
+
+        end
     end
 
     def extract_article_params

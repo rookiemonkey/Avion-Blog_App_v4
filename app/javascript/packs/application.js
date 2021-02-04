@@ -7,6 +7,12 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import $ from 'jquery'
+import toastr from 'toastr'
+import './src/application.scss'
+
+window.$ = $
+window.toastr = toastr
 
 Rails.start()
 Turbolinks.start()

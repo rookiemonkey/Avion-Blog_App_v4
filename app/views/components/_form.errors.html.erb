@@ -4,10 +4,6 @@
 <section class="hero is-small is-danger">
 <div class="hero-body">
 
-    <p class="title">
-        Oh snap! we are unable to process your request.
-    </p>
-
     <ul>
         <% instance.errors.full_messages.each do |err| %>
             <li><%= err %></li>
