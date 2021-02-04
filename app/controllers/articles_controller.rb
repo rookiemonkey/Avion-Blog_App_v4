@@ -29,7 +29,6 @@ class ArticlesController < ApplicationController
 
     def update
         begin
-            @article.image.purge if self.is_new_image?
             raise 'Failed to update article' unless @article.update(self.extract_article_params)
             redirect_to @article
             
@@ -41,7 +40,6 @@ class ArticlesController < ApplicationController
 
     def destroy
         begin
-            # @article.purge need to store image somewhere if
             raise 'Failed to delete article' unless @article.destroy
             redirect_to articles_path
 
@@ -59,11 +57,7 @@ class ArticlesController < ApplicationController
     end
 
     def extract_article_params
-        params.require(:article).permit(:title, :body, :image)
-    end
-
-    def is_new_image?
-        !(!!params.require(:article).permit(:image))
+        params.require(:article).permit(:title, :body, :image, :image_cache)
     end
 
 end

@@ -6,8 +6,8 @@
 <div class="container">
 
 
-<% if @article.image.attached? %>
-  <section class="hero is-medium banner-custom" style='background-image: url(<%= url_for @article.image %>)'>
+<% if @article.image.present? %>
+  <section class="hero is-medium banner-custom" style='background-image: url(<%= @article.image.url %>)'>
 <% else %>
   <section class="hero is-medium banner-custom">
 <% end %>

@@ -7,14 +7,25 @@
 <div class="columns">
 
     <div class="column is-6 form-left">
-        <%= image_tag "thoughts1.svg", alt: "Thoughts", class: "mb-4 preview" %>
-        <h2 class="is-size-4 mt-4 has-text-weight-semibold">What are you thinking right now?</h2>
+
+        <% if @article and @article.image_cache.present? %>
+          <%= image_tag @article.image.url, alt: "Thoughts", class: "mb-4 preview" %>
+        <% else %>
+          <%= image_tag "thoughts1.svg", alt: "Thoughts", class: "mb-4 preview" %>
+        <% end %>
+
+        <h2 class="is-size-4 mt-4 has-text-weight-semibold">
+          What are you thinking right now?
+        </h2>
+
     </div>
 
     <div class="column is-6 form-right">
-    <%= form_with scope: :article, url: post_article_path, local: true, multipart: true do |form| %>
-        <%= render 'components/article/form.fields', form: form, action: 'new' %>
-    <% end %>
+
+      <%= form_with scope: :article, url: post_article_path, local: true, multipart: true do |form| %>
+          <%= render 'components/article/form.fields', form: form, action: 'new' %>
+      <% end %>
+
     </div>
 
 </div>

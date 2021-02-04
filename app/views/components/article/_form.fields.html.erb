@@ -17,13 +17,22 @@
   <div class="control" style="max-width: 200px">
   <div class="file">
   <label class="file-label">
+  
     <%= form.file_field :image, class: "file-input", accept: "image/png, image/jpeg, image/jpg" %>
+    <%= form.hidden_field :image_cache %>
+
     <span class="file-cta">
       <span class="file-icon">
         <i class="fas fa-upload"></i>
       </span>
       <span class="file-label">
-        Article Banner
+
+        <% if @article and @article.image_cache.present? %>
+          <%= @article.image.filename %>
+        <% else %>
+          Article Banner
+        <% end %>
+        
       </span>
     </span>
   </label>
