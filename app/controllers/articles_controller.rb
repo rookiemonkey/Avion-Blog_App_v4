@@ -12,9 +12,16 @@ class ArticlesController < ApplicationController
     end
 
     def index
-        @articles = Article
-          .paginate(page: params[:page], per_page: 10)
-          .order(created_at: :desc)
+        begin
+          self.set_articles params[:page]
+          raise "You've reached the last page" if @articles.current_page > @articles.total_pages 
+
+        rescue StandardError => e
+          self.set_articles 1
+          flash.now[:alert] = e.message
+          render :index
+
+        end
     end
 
     def create
@@ -69,6 +76,12 @@ class ArticlesController < ApplicationController
             redirect_to articles_path
 
         end
+    end
+
+    def set_articles(page)
+        @articles = Article
+          .paginate(page: page, per_page: 10)
+          .order(created_at: :desc)
     end
 
     def extract_article_params
