@@ -12,5 +12,21 @@
  *
  *= require_tree .
  *= require_self
- *= require main
  */
+
+
+
+// no need to import other scss files w/in this folder
+// application.scss is taking care of using using sprockets
+// it is the line that says 'require_tree .'
+// only import css dependencies that are installed and in node_modules
+
+@import 'bulma/bulma';
+@import 'toastr/build/toastr.min';
+
+@keyframes spin { 
+  100% { 
+    -webkit-transform: rotate(180deg); 
+    transform:rotate(180deg); 
+  } 
+}
