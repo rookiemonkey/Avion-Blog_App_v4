@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
             redirect_to @article
 
         rescue StandardError => e
-            flash[:alert] = e.message
+            flash.now[:alert] = e.message
             render :new
 
         end
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
             redirect_to @article
             
         rescue StandardError => e
-            flash[:alert] = e.message
+            flash.now[:alert] = e.message
             render :edit
             
         end
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
             redirect_to articles_path
 
         rescue StandardError => e
-            flash[:alert] = e.message
+            flash.now[:alert] = e.message
             render @article
         
         end

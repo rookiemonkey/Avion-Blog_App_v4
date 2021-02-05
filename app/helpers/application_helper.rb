@@ -7,11 +7,17 @@ module ApplicationHelper
       type = 'success' if type == 'notice'
       type = 'error' if type == 'alert'
 
-      text = "<script>toastr.#{type}('#{message}', '', { closeButton: true, progressBar: true })</script>"
+      # multi-line string has returns '\n', used squish to remove it
+      text = "<script>
+        toastr.#{type}(\"#{message}\", '', { 
+            closeButton: true, 
+            progressBar: true,
+            positionClass: 'toast-top-center'
+          })
+      </script>".squish
 
       flash_messages << text.html_safe if message
-      flash_messages.join("\n").html_safe
-      
+      flash_messages.join("\n")
     end
   end
 

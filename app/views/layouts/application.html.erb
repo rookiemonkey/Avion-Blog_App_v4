@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <%= raw toastr_flash if toastr_flash.length.positive?  %>
+    <%= raw toastr_flash[0] if toastr_flash.length.positive?  %>
     <%= yield %>
   </body>
 </html>
