@@ -64,8 +64,8 @@ class ArticlesController < ApplicationController
         begin
           @article = Article.find params[:id]
 
-        rescue StandardError => e
-            flash[:alert] = e.message
+        rescue ActiveRecord::RecordNotFound => e
+            flash[:alert] = "Couldn't find Article"
             redirect_to articles_path
 
         end
