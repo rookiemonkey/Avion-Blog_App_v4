@@ -5,8 +5,8 @@
 <div class="hero-body">
 
     <ul>
-        <% instance.errors.full_messages.each do |err| %>
-            <li><%= err %></li>
+        <% parse_errors(instance.errors).each do |field, error| %>
+            <li><b><%= field %></b> <%= error %></li>
         <% end %>
     </ul>
 

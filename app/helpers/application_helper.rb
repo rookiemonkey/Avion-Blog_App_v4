@@ -21,4 +21,15 @@ module ApplicationHelper
     end
   end
 
+
+  def parse_errors(errors)
+    hash = Hash.new
+
+    errors.each do |err|
+      hash[err.attribute.to_s.upcase] = err.message
+    end
+
+    hash
+  end
+
 end
