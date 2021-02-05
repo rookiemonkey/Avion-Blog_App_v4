@@ -64,7 +64,13 @@
     <div class="apple_pagination">
     <div class="columns">
     <div class="column is-8 is-offset-2 pagination-item p-5">
-        <%= will_paginate @articles, container: false %>
+        <%= will_paginate @articles,
+            container: false, 
+            previous_label: '<i class="fas fa-arrow-circle-left"></i> Previous',
+            next_label: 'Next <i class="fas fa-arrow-circle-right"></i>',
+            inner_window: 1, 
+            outer_window: 0
+        %>
     </div>
     </div>
     </div>

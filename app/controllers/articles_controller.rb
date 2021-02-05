@@ -12,7 +12,9 @@ class ArticlesController < ApplicationController
     end
 
     def index
-        @articles = Article.paginate(page: params[:page], per_page: 10)
+        @articles = Article
+          .paginate(page: params[:page], per_page: 10)
+          .order(created_at: :desc)
     end
 
     def create

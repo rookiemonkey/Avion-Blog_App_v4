@@ -45,3 +45,17 @@
   text-decoration: none; 
   color: #363636;
 }
+
+.apple_pagination .previous_page,
+.apple_pagination .next_page {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.apple_pagination .previous_page {
+  float: left;
+}
+
+.apple_pagination .next_page {
+  float: right;
+}
