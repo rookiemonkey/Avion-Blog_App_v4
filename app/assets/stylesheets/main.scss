@@ -1,15 +1,10 @@
+
+// no need to import other scss files w/in this folder
+// application.scss is taking care of using using sprockets
+// it is the line that says 'require_tree .'
+// only import css dependencies that are installed
+
 @import 'bulma/bulma';
-@import './lib/divider.scss';
-
-
-// components
-@import './components/nav';
-@import './components/banner';
-
-
-// styles per view
-@import './articles/main';
-
 
 @keyframes spin { 
   100% { 

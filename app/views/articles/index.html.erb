@@ -61,6 +61,14 @@
     
     <% end %>
 
+    <div class="apple_pagination">
+    <div class="columns">
+    <div class="column is-8 is-offset-2 pagination-item p-5">
+        <%= will_paginate @articles, container: false %>
+    </div>
+    </div>
+    </div>
+
 </div>
 </div>
 </section>
