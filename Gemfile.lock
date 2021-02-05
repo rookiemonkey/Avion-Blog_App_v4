@@ -227,6 +227,7 @@ DEPENDENCIES
   carrierwave (~> 2.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mimemagic (~> 0.3.5)
   pg
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

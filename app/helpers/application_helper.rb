@@ -6,10 +6,12 @@ module ApplicationHelper
       
       type = 'success' if type == 'notice'
       type = 'error' if type == 'alert'
+      title = 'Hooray!' if type == 'notice'
+      title = 'Oh snap!' if type == 'alert'
 
       # multi-line string has returns '\n', used squish to remove it
       text = "<script>
-        toastr.#{type}(\"#{message}\", '', { 
+        toastr.#{type}(\"#{message}\", '#{title}', { 
             closeButton: true, 
             progressBar: true,
             positionClass: 'toast-top-center'

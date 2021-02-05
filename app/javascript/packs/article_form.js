@@ -5,13 +5,21 @@ const preview = document.querySelector('img.preview');
 input.onchange = () => {
   const file = input.files[0];
 
+  const options = {
+    closeButton: true,
+    progressBar: true,
+    positionClass: 'toast-top-center'
+  }
+
   // check file size
-  if (file.size > 1000000) return alert('File is too big')
+  if (file.size > 1000000) return toastr.error('File is too big', 'Oh snap!', options)
 
   // check mime type
   const valid_mime = ['image/png', 'image/jpeg', 'image/jpg']
   const is_valid = valid_mime.some(t => t == file.type)
-  if (!is_valid) return alert('We only accept jpeg, jpg and png files')
+  if (!is_valid) return toastr.error('We only accept jpeg, jpg and png files', 'Oh snap!', options)
+
+  console.log(file)
 
   // parse file name
   const last_slash = input.value.lastIndexOf(`\\`)

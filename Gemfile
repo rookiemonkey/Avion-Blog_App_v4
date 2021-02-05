@@ -59,3 +59,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "carrierwave", "~> 2.1"
 
 gem "will_paginate", "~> 3.3"
+
+gem "mimemagic", "~> 0.3.5"
