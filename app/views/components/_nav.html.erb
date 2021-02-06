@@ -20,6 +20,17 @@
     <div id="navbarMenu" class="navbar-menu">
     <div class="navbar-end">
 
+        <%= form_with url: search_article_path, method: :get, class: "navbar-item" do |f| %>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <%= f.text_field :query, autocomplete: :off, class: "input is-primary", placeholder: "Search Article", required: true %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-search"></i>
+              </span>
+            </p>
+          </div>
+        <% end %>
+
         <div class="dropdown navbar-item is-hoverable">
             <div class="dropdown-trigger">
                 <button class="button is-size-5 has-text-weight-semibold" aria-haspopup="true" aria-controls="dropdown-menu4" style="border: none">

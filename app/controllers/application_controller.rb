@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
       flash.now[:alert] = exception.message
       return render "articles/new" if handler == 'articles#create'
       return render "articles/edit" if handler == 'articles#update'
+      return redirect_to(articles_path, alert: exception.message) if handler == 'articles#search'
       render "articles/index"
   end
 
