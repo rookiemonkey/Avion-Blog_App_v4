@@ -22,20 +22,17 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(self.extract_article_params)
         raise 'Oh snap! Something went wrong upon creating your article' unless @article.save
-        flash[:notice] = 'Successfully created your article!'
-        redirect_to @article
+        redirect_to @article, notice: 'Successfully created your article!'
     end
 
     def update
         raise 'Oh snap! Something went wrong upon updating your article' unless @article.update(self.extract_article_params)
-        flash[:notice] = 'Successfully updated your article!'
-        redirect_to @article
+        redirect_to @article, notice: "Successfully updated your article!"
     end
 
     def destroy
         raise 'Oh snap! Something went wrong upon deleting your article' unless @article.destroy
-        flash[:notice] = 'Successfully deleted your article!'
-        redirect_to articles_path
+        redirect_to articles_path, notice: 'Successfully deleted your article!'
     end
 
 

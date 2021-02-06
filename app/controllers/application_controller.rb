@@ -1,21 +1,22 @@
 class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-  rescue_from RuntimeError, with: :custom_error
+  rescue_from RuntimeError, with: :raised_errors
 
   protected
 
   def record_not_found(exception)
-      flash[:alert] = "Unable to find what you are looking for"
-      redirect_to articles_path
+      redirect_to articles_path, alert: "Unable to find what you are looking for"
   end
 
-  def custom_error(exception)
+  def raised_errors(exception)
       flash.now[:alert] = exception.message
       return render "articles/new" if handler == 'articles#create'
       return render "articles/edit" if handler == 'articles#update'
       render "articles/index"
   end
+
+
 
   
   private
