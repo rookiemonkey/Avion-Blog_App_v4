@@ -1,4 +1,4 @@
-# Blog App v4 (Avion School Excercise)
+# Blog App v4 (Avion School Exercise)
 
 An application written in ruby :diamonds: using ruby on rails framework :train2: This is my first application written in the said language and framework :tada:
 
