@@ -12,70 +12,38 @@ class ArticlesController < ApplicationController
     end
 
     def index
-        begin
-          self.set_articles params[:page]
-          raise "You've reached the last page" if @articles.current_page > @articles.total_pages 
+        self.set_articles params[:page]
 
-        rescue StandardError => e
-          self.set_articles 1
-          flash.now[:alert] = e.message
-          render :index
-
-        end
+        is_more_than_total_page = @articles.current_page > @articles.total_pages 
+        self.set_articles 1 if is_more_than_total_page
+        raise "You've reached the last page" if is_more_than_total_page
     end
 
     def create
-        begin
-            @article = Article.new(self.extract_article_params)
-            raise 'Oh snap! Something went wrong upon creating your article' unless @article.save
-            flash[:notice] = 'Successfully created your article!'
-            redirect_to @article
-
-        rescue StandardError => e
-            flash.now[:alert] = e.message
-            render :new
-
-        end
+        @article = Article.new(self.extract_article_params)
+        raise 'Oh snap! Something went wrong upon creating your article' unless @article.save
+        flash[:notice] = 'Successfully created your article!'
+        redirect_to @article
     end
 
     def update
-        begin
-            raise 'Oh snap! Something went wrong upon updating your article' unless @article.update(self.extract_article_params)
-            flash[:notice] = 'Successfully updated your article!'
-            redirect_to @article
-            
-        rescue StandardError => e
-            flash.now[:alert] = e.message
-            render :edit
-            
-        end
+        raise 'Oh snap! Something went wrong upon updating your article' unless @article.update(self.extract_article_params)
+        flash[:notice] = 'Successfully updated your article!'
+        redirect_to @article
     end
 
     def destroy
-        begin
-            raise 'Oh snap! Something went wrong upon deleting your article' unless @article.destroy
-            flash[:notice] = 'Successfully deleted your article!'
-            redirect_to articles_path
-
-        rescue StandardError => e
-            flash.now[:alert] = e.message
-            render @article
-        
-        end
+        raise 'Oh snap! Something went wrong upon deleting your article' unless @article.destroy
+        flash[:notice] = 'Successfully deleted your article!'
+        redirect_to articles_path
     end
+
 
 
     private
 
     def set_article
-        begin
-          @article = Article.find params[:id]
-
-        rescue ActiveRecord::RecordNotFound => e
-            flash[:alert] = "Couldn't find Article"
-            redirect_to articles_path
-
-        end
+        @article = Article.find params[:id]
     end
 
     def set_articles(page)
