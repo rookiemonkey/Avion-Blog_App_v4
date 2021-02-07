@@ -1,6 +1,6 @@
 require_relative '../uploaders/image_uploader.rb'
-require 'pp'
 require 'mimemagic'
+require 'pp'
 
 class Article < ApplicationRecord
 
@@ -25,7 +25,7 @@ class Article < ApplicationRecord
         return if image.file.nil?
 
         # halt if current image doesn't exists  'fix for heroku temp uploads'
-        return if (File.exist? image.file.file) and (!image.file.nil?)
+        return unless File.exist? image.file.file and !image.file.nil?
 
         # check file size
         errors.add(:image, "is too big") if image.size >= 1000000 #1mb

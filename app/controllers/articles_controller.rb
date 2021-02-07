@@ -28,13 +28,6 @@ class ArticlesController < ApplicationController
 
     def update
         raise 'Oh snap! Something went wrong upon updating your article' unless @article.update(self.extract_article_params)
-
-        # 'fix for heroku temp uploads'
-        if (File.exist? @article.image.file.file) and (!@article.image.file.nil?)
-          @article.image = nil
-          @article.save
-        end
-
         redirect_to @article, notice: "Successfully updated your article!"
     end
 
